@@ -16,8 +16,10 @@ class Utils {
      */
     public static function getAviaryUrl($embed) {
         $ch = curl_init();
+        $ua = 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:17.0) Gecko/20100101 Firefox/17.0';
         curl_setopt($ch, CURLOPT_URL, $embed);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_USERAGENT, $ua);
         $response = curl_exec($ch);
         curl_close($ch);
         // Create DOM from URL or file
